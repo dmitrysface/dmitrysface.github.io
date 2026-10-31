@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark light">
+<title>Dmitry Leeguy (Dmitrysface) – Entrepreneur, Music Artist, Photographer</title>
+<meta name="description" content="Dmitry Leeguy (Dmitrysface, also Dmitriy Ligay): entrepreneur, music artist, photographer. Owner of NOIR in Tashkent, co-founder of VERTEX LINE, co-producer of CYN.">
+<meta name="robots" content="index, follow">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Dmitry Leeguy (Dmitrysface) – Entrepreneur, Music Artist, Photographer">
+<meta property="og:description" content="Dmitry Leeguy (Dmitrysface, also Dmitriy Ligay): entrepreneur, music artist, photographer. Owner of NOIR in Tashkent, co-founder of VERTEX LINE, co-producer of CYN.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Dmitry Leeguy",
+  "alternateName": [
+    "Dmitrysface",
+    "Dmitriy Ligay",
+    "Дмитрий Лигай"
+  ],
+  "description": "Dmitry Leeguy, known online as Dmitrysface (also written Dmitriy Ligay), is an entrepreneur, music artist and photographer. He owns the NOIR venue in Tashkent and is a co-founder of the logistics company VERTEX LINE.",
+  "jobTitle": [
+    "Entrepreneur",
+    "Music artist",
+    "Photographer"
+  ],
+  "sameAs": [
+    "https://www.instagram.com/dmitrysface/",
+    "https://www.instagram.com/dmitry_leeguy/",
+    "https://open.spotify.com/artist/3EoRHIQx8SzFR3UKIgxp10",
+    "https://music.yandex.ru/artist/10407292"
+  ],
+  "worksFor": [
+    {
+      "@type": "Organization",
+      "name": "NOIR",
+      "description": "Venue in Tashkent, Uzbekistan, owned by Dmitry Leeguy",
+      "sameAs": [
+        "https://www.instagram.com/noir_tashkent/"
+      ]
+    },
+    {
+      "@type": "Organization",
+      "name": "VERTEX LINE",
+      "description": "Logistics company co-founded by Dmitry Leeguy"
+    },
+    {
+      "@type": "Organization",
+      "name": "CYN",
+      "description": "Project co-produced by Dmitry Leeguy",
+      "sameAs": [
+        "https://www.instagram.com/cuzynot_official/"
+      ]
+    }
+  ]
+}
+</script>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700&display=swap">
+<style>
+  /* Layout: one narrow centered card column; language pills on top, portrait, wordmark over its fade,
+     statement, then link rows. English is the base text; RU and KO swap in through script. */
+  :root {
+    --bg: #0c0d10;
+    --surface: #15171c;
+    --fg: #f1efe9;
+    --muted: #9a9ca5;
+    --line: #272a31;
+    --accent: #6fe3d2;
+    --accent-ink: #06231f;
+    --font-display: "Montserrat", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-body: "Montserrat", "Noto Sans KR", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --name-weight: 700;
+    --name-scale: 1.2;
+    --name-tracking: 0.01em;
+    color-scheme: dark;
+  }
+  @media (prefers-color-scheme: light) {
+    :root:not([data-theme="dark"]) {
+      --bg: #f2f3f5;
+      --surface: #ffffff;
+      --fg: #0e1014;
+      --muted: #5d6068;
+      --line: #d9dbe0;
+      --accent: #0a7569;
+      --accent-ink: #ffffff;
+      color-scheme: light;
+    }
+  }
+  :root[data-theme="light"] {
+    --bg: #f2f3f5;
+    --surface: #ffffff;
+    --fg: #0e1014;
+    --muted: #5d6068;
+    --line: #d9dbe0;
+    --accent: #0a7569;
+    --accent-ink: #ffffff;
+    color-scheme: light;
+  }
+
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--fg);
+    font-family: var(--font-body);
+    font-size: 17px;
+    line-height: 1.55;
+    padding-block: 20px 40px;
+    padding-left: max(16px, env(safe-area-inset-left, 0px));
+    padding-right: max(16px, env(safe-area-inset-right, 0px));
+  }
+  html[lang="ko"] body { word-break: keep-all; }
+
+  .card {
+    width: 100%;
+    max-width: 520px;
+    margin-inline: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+  }
+
+  .lang {
+    display: flex;
+    justify-content: flex-end;
+    gap: 6px;
+  }
+  .lang button {
+    font: inherit;
+    font-size: 0.8rem;
+    font-weight: 500;
+    line-height: 1;
+    min-height: 34px;
+    padding: 9px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: transparent;
+    color: var(--muted);
+    cursor: pointer;
+  }
+  .lang button[aria-pressed="true"] {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
+  }
+  .lang button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .portrait {
+    position: relative;
+    margin: 0;
+    border-radius: 18px;
+    overflow: hidden;
+  }
+  .portrait img { display: block; width: 100%; height: auto; }
+  .portrait::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent 52%, var(--bg) 97%);
+    pointer-events: none;
+  }
+  .hero-text { position: relative; z-index: 1; margin-top: -104px; }
+  .eyebrow {
+    margin: 0;
+    font-size: 0.8rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .name {
+    margin: 8px 0 0;
+    font-family: var(--font-display);
+    font-weight: var(--name-weight);
+    font-size: calc(var(--name-scale) * clamp(1.55rem, 8.2vw, 2.9rem));
+    line-height: 1.05;
+    letter-spacing: var(--name-tracking);
+    overflow-wrap: anywhere;
+    text-wrap: balance;
+  }
+  .name span { color: var(--accent); }
+  .role {
+    margin: 0;
+    font-size: 1.08rem;
+    font-weight: 500;
+    text-wrap: balance;
+  }
+  .about {
+    margin: 0;
+    max-width: 44ch;
+    color: var(--muted);
+  }
+  .links {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    min-width: 0;
+    padding: 16px 18px;
+    border: 1px solid var(--line);
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--fg);
+    text-decoration: none;
+  }
+  .link .label { font-weight: 600; }
+  .link .meta {
+    min-width: 0;
+    color: var(--muted);
+    font-size: 0.92rem;
+    overflow-wrap: anywhere;
+    text-align: right;
+  }
+  a.link:hover, a.link:focus-visible { border-color: var(--accent); }
+  a.link:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  a.link .meta { color: var(--accent); }
+  .collab { display: flex; flex-direction: column; gap: 12px; }
+  .collab h2 {
+    margin: 0;
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--muted);
+  }
+  .foot {
+    margin: 0;
+    font-size: 0.8rem;
+    color: var(--muted);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .link { transition: border-color 0.2s ease; }
+  }
+</style>
+</head>
+<body>
+
+
+<main class="card">
+  <div class="lang" role="group" aria-label="Language">
+    <button type="button" id="lang-en" data-lang="en" aria-pressed="true">EN</button>
+    <button type="button" id="lang-ru" data-lang="ru" aria-pressed="false">RU</button>
+    <button type="button" id="lang-ko" data-lang="ko" aria-pressed="false">한국어</button>
+  </div>
+
+  <figure class="portrait">
+    <img id="portrait-img" src="portrait.jpg" width="1040" height="1300" alt="Dmitrysface, side-profile portrait with arms crossed">
+  </figure>
+
+  <header class="hero-text">
+    <p class="eyebrow">Dmitry Leeguy</p>
+    <h1 class="name">DMITRYS<span>FACE</span></h1>
+  </header>
+
+  <p class="role" data-i18n="role">Entrepreneur. Creator. A man of his own path.</p>
+
+  <p class="about" data-i18n="about">I build businesses, explore the world and write my own story. Creativity runs in my blood.</p>
+
+  <section class="collab" aria-labelledby="bio-title">
+    <h2 id="bio-title" data-i18n="bioTitle">Biography</h2>
+    <p class="about" data-i18n="bio">Dmitry Leeguy (also written Dmitriy Ligay) is an ethnic Korean born in Uzbekistan, where he has spent almost his whole life. His photography career took place in Tashkent. Music videos as an artist, and as co-producer of CYN, were shot in Korea. He owns the NOIR venue in Tashkent and is a co-founder of the logistics company VERTEX LINE.</p>
+  </section>
+
+  <section class="collab" aria-labelledby="work-title">
+    <h2 id="work-title" data-i18n="work">What I do</h2>
+    <ul class="links">
+      <li>
+        <a class="link" href="https://www.instagram.com/noir_tashkent/" id="link-noir">
+          <span class="label">NOIR</span>
+          <span class="meta" data-i18n="noir">Venue owner, Tashkent</span>
+        </a>
+      </li>
+      <li>
+        <div class="link" id="row-vertex">
+          <span class="label">VERTEX LINE</span>
+          <span class="meta" data-i18n="vertex">Co-founder, logistics company</span>
+        </div>
+      </li>
+      <li>
+        <a class="link" href="https://www.instagram.com/cuzynot_official/" id="link-cyn">
+          <span class="label">CYN</span>
+          <span class="meta" data-i18n="cyn">Co-producer</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" href="https://www.instagram.com/dmitry_leeguy/" id="link-photo">
+          <span class="label">Dmitry Leeguy</span>
+          <span class="meta" data-i18n="photo">Photographer</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="collab" aria-labelledby="clips-title">
+    <h2 id="clips-title" data-i18n="clips">Music videos</h2>
+    <ul class="links">
+      <li>
+        <a class="link" href="https://youtu.be/KwJvAVuPXsU" id="clip-na-muve">
+          <span class="label">На Муве</span>
+          <span class="meta" data-i18n="wp2020">with Yuri Park, 2020</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" href="https://youtu.be/Ys1mf72_1cY" id="clip-please-stop-it">
+          <span class="label">Please Stop It</span>
+          <span class="meta" data-i18n="wp2023">with Yuri Park, 2023</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" href="https://youtu.be/r4bY4mAGqOI" id="clip-chic-chic">
+          <span class="label">Шик-шик (chic-chic)</span>
+          <span class="meta" data-i18n="wp2024">with Yuri Park, 2024</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" href="https://youtu.be/nc6yI5pi3k8" id="clip-bust-n-click">
+          <span class="label">Bust n Click</span>
+          <span class="meta" data-i18n="collab">Collaboration</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <section class="collab" aria-labelledby="listen-title">
+    <h2 id="listen-title" data-i18n="listen">Listen</h2>
+    <ul class="links">
+      <li>
+        <a class="link" href="https://open.spotify.com/artist/3EoRHIQx8SzFR3UKIgxp10" id="link-spotify">
+          <span class="label">Spotify</span>
+          <span class="meta" data-i18n="yandex">Artist profile</span>
+        </a>
+      </li>
+      <li>
+        <a class="link" href="https://music.yandex.ru/artist/10407292" id="link-yandex-music">
+          <span class="label">Yandex Music</span>
+          <span class="meta" data-i18n="yandex">Artist profile</span>
+        </a>
+      </li>
+    </ul>
+  </section>
+
+  <ul class="links">
+    <li>
+      <a class="link" href="https://www.instagram.com/dmitrysface/" id="link-instagram">
+        <span class="label">Instagram</span>
+        <span class="meta">@dmitrysface</span>
+      </a>
+    </li>
+  </ul>
+
+  <p class="foot">Dmitrysface</p>
+</main>
+
+<script>
+  var T = {
+    en: {
+      role: "Entrepreneur. Creator. A man of his own path.",
+      about: "I build businesses, explore the world and write my own story. Creativity runs in my blood.",
+      bioTitle: "Biography",
+      bio: "Dmitry Leeguy (also written Dmitriy Ligay) is an ethnic Korean born in Uzbekistan, where he has spent almost his whole life. His photography career took place in Tashkent. Music videos as an artist, and as co-producer of CYN, were shot in Korea. He owns the NOIR venue in Tashkent and is a co-founder of the logistics company VERTEX LINE.",
+      collab: "Collaboration",
+      listen: "Listen",
+      yandex: "Artist profile",
+      work: "What I do",
+      noir: "Venue owner, Tashkent",
+      vertex: "Co-founder, logistics company",
+      cyn: "Co-producer",
+      photo: "Photographer",
+      clips: "Music videos",
+      wp2020: "with Yuri Park, 2020",
+      wp2023: "with Yuri Park, 2023",
+      wp2024: "with Yuri Park, 2024",
+      alt: "Dmitrysface, side-profile portrait with arms crossed"
+    },
+    ru: {
+      role: "Предприниматель. Создатель. Человек своего пути.",
+      about: "Строю бизнесы, исследую мир, создаю собственную историю. Творчество в крови.",
+      bioTitle: "Биография",
+      bio: "Дмитрий Лигай (Dmitry Leeguy) — этнический кореец, родившийся в Узбекистане, где провёл почти всю жизнь. Творческая деятельность фотографа проходила в Ташкенте. Съёмки клипов как исполнителя и как сопродюсера CYN проходили в Корее. Владелец заведения NOIR в Ташкенте и соучредитель логистической компании VERTEX LINE.",
+      collab: "Совместная работа",
+      listen: "Слушать",
+      yandex: "Профиль артиста",
+      work: "Чем занимаюсь",
+      noir: "Владелец заведения, Ташкент",
+      vertex: "Соучредитель логистической компании",
+      cyn: "Сопродюсер",
+      photo: "Фотограф",
+      clips: "Клипы",
+      wp2020: "с Yuri Park, 2020",
+      wp2023: "с Yuri Park, 2023",
+      wp2024: "с Yuri Park, 2024",
+      alt: "Dmitrysface, портрет в профиль, скрещённые руки"
+    },
+    ko: {
+      role: "기업가. 크리에이터. 나만의 길을 걷는 사람.",
+      about: "사업을 만들고, 세상을 탐험하며, 나만의 이야기를 써 내려갑니다. 창의성은 제 안에 흐릅니다.",
+      bioTitle: "소개",
+      bio: "드미트리 리가이(Dmitry Leeguy)는 우즈베키스탄에서 태어난 한국계로, 거의 평생을 우즈베키스탄에서 보냈습니다. 사진작가로서의 창작 활동은 타슈켄트에서 이루어졌습니다. 아티스트로서, 그리고 CYN의 공동 프로듀서로서의 뮤직비디오 촬영은 한국에서 진행되었습니다. 타슈켄트의 NOIR 매장 오너이자 물류 회사 VERTEX LINE의 공동 창업자입니다.",
+      collab: "협업",
+      listen: "듣기",
+      yandex: "아티스트 프로필",
+      work: "하는 일",
+      noir: "타슈켄트 매장 오너",
+      vertex: "물류 회사 공동 창업자",
+      cyn: "공동 프로듀서",
+      photo: "포토그래퍼",
+      clips: "뮤직비디오",
+      wp2020: "Yuri Park과 함께, 2020",
+      wp2023: "Yuri Park과 함께, 2023",
+      wp2024: "Yuri Park과 함께, 2024",
+      alt: "Dmitrysface, 팔짱을 낀 옆모습 포트레이트"
+    }
+  };
+
+  var buttons = document.querySelectorAll('.lang button');
+  var nodes = document.querySelectorAll('[data-i18n]');
+  var img = document.getElementById('portrait-img');
+
+  function setLang(code, remember) {
+    var d = T[code];
+    if (!d) return;
+    document.documentElement.setAttribute('lang', code);
+    nodes.forEach(function (n) {
+      var v = d[n.getAttribute('data-i18n')];
+      if (v) n.textContent = v;
+    });
+    img.setAttribute('alt', d.alt);
+    buttons.forEach(function (b) {
+      b.setAttribute('aria-pressed', b.getAttribute('data-lang') === code ? 'true' : 'false');
+    });
+    if (remember) {
+      try { localStorage.setItem('dmitrysface-lang', code); } catch (e) {}
+    }
+  }
+
+  buttons.forEach(function (b) {
+    b.addEventListener('click', function () { setLang(b.getAttribute('data-lang'), true); });
+  });
+
+  var saved = null;
+  try { saved = localStorage.getItem('dmitrysface-lang'); } catch (e) {}
+  if (saved && saved !== 'en') setLang(saved, false);
+</script>
+</body>
+</html>
