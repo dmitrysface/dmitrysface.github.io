@@ -240,6 +240,85 @@
     text-transform: uppercase;
     color: var(--muted);
   }
+  .strip {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 6px;
+  }
+  .shot {
+    flex: 0 0 min(78%, 300px);
+    min-width: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    scroll-snap-align: start;
+  }
+  .shot button {
+    display: block;
+    width: 100%;
+    padding: 0;
+    border: 0;
+    border-radius: 14px;
+    overflow: hidden;
+    background: var(--surface);
+    cursor: zoom-in;
+  }
+  .shot button:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .shot img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+  }
+  .shot figcaption {
+    font-size: 0.82rem;
+    line-height: 1.4;
+    color: var(--muted);
+  }
+  .lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: max(16px, env(safe-area-inset-top, 0px)) max(16px, env(safe-area-inset-right, 0px)) max(16px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
+    background: rgba(5, 6, 8, 0.94);
+  }
+  .lightbox[hidden] { display: none; }
+  .lightbox img {
+    max-width: 100%;
+    max-height: 78vh;
+    object-fit: contain;
+    border-radius: 10px;
+  }
+  .lightbox p {
+    margin: 0;
+    max-width: 44ch;
+    text-align: center;
+    font-size: 0.9rem;
+    color: #e9e7e1;
+  }
+  .lightbox .close {
+    position: absolute;
+    top: max(12px, env(safe-area-inset-top, 0px));
+    right: max(12px, env(safe-area-inset-right, 0px));
+    font: inherit;
+    font-size: 0.85rem;
+    padding: 10px 16px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: transparent;
+    color: #e9e7e1;
+    cursor: pointer;
+  }
+  .lightbox .close:focus-visible { outline: 2px solid #6fe3d2; outline-offset: 2px; }
   .foot {
     margin: 0;
     font-size: 0.8rem;
@@ -338,6 +417,30 @@
     </ul>
   </section>
 
+  <section class="collab" aria-labelledby="gallery-title">
+    <h2 id="gallery-title" data-i18n="gallery">Gallery</h2>
+    <div class="strip">
+      <figure class="shot">
+        <button type="button" data-full="gallery-1.jpg">
+          <img src="gallery-1.jpg" width="1000" height="1237" loading="lazy" data-alt-key="g1" alt="Behind the scenes of Emily Mei's music video, Korea, CYN production">
+        </button>
+        <figcaption data-i18n="g1">Behind the scenes of Emily Mei's music video, Korea · CYN production</figcaption>
+      </figure>
+      <figure class="shot">
+        <button type="button" data-full="gallery-2.jpg">
+          <img src="gallery-2.jpg" width="1000" height="1237" loading="lazy" data-alt-key="g2" alt="Korean-style photo shoot with Yuri Park">
+        </button>
+        <figcaption data-i18n="g2">Korean-style photo shoot with Yuri Park</figcaption>
+      </figure>
+      <figure class="shot">
+        <button type="button" data-full="gallery-3.jpg">
+          <img src="gallery-3.jpg" width="1000" height="1237" loading="lazy" data-alt-key="g3" alt="From the shoot of the Please Stop It music video">
+        </button>
+        <figcaption data-i18n="g3">From the shoot of the “Please Stop It” music video</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="collab" aria-labelledby="listen-title">
     <h2 id="listen-title" data-i18n="listen">Listen</h2>
     <ul class="links">
@@ -368,6 +471,12 @@
   <p class="foot">Dmitrysface</p>
 </main>
 
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Photo" hidden>
+  <button type="button" class="close" id="lightbox-close" aria-label="Close">✕</button>
+  <img id="lightbox-img" alt="">
+  <p id="lightbox-cap"></p>
+</div>
+
 <script>
   var T = {
     en: {
@@ -376,6 +485,10 @@
       bioTitle: "Biography",
       bio: "Dmitry Leeguy (also written Dmitriy Ligay) is an ethnic Korean born in Uzbekistan, where he has spent almost his whole life. His photography career took place in Tashkent. Music videos as an artist, and as co-producer of CYN, were shot in Korea. He owns the NOIR venue in Tashkent and is a co-founder of the logistics company VERTEX LINE.",
       collab: "Collaboration",
+      gallery: "Gallery",
+      g1: "Behind the scenes of Emily Mei's music video, Korea · CYN production",
+      g2: "Korean-style photo shoot with Yuri Park",
+      g3: "From the shoot of the “Please Stop It” music video",
       listen: "Listen",
       yandex: "Artist profile",
       work: "What I do",
@@ -395,6 +508,10 @@
       bioTitle: "Биография",
       bio: "Дмитрий Лигай (Dmitry Leeguy) — этнический кореец, родившийся в Узбекистане, где провёл почти всю жизнь. Творческая деятельность фотографа проходила в Ташкенте. Съёмки клипов как исполнителя и как сопродюсера CYN проходили в Корее. Владелец заведения NOIR в Ташкенте и соучредитель логистической компании VERTEX LINE.",
       collab: "Совместная работа",
+      gallery: "Галерея",
+      g1: "Со съёмок клипа Emily Mei, Корея · продакшен CYN",
+      g2: "Съёмка в корейском стиле вместе с Yuri Park",
+      g3: "Со съёмок клипа «Please Stop It»",
       listen: "Слушать",
       yandex: "Профиль артиста",
       work: "Чем занимаюсь",
@@ -414,6 +531,10 @@
       bioTitle: "소개",
       bio: "드미트리 리가이(Dmitry Leeguy)는 우즈베키스탄에서 태어난 한국계로, 거의 평생을 우즈베키스탄에서 보냈습니다. 사진작가로서의 창작 활동은 타슈켄트에서 이루어졌습니다. 아티스트로서, 그리고 CYN의 공동 프로듀서로서의 뮤직비디오 촬영은 한국에서 진행되었습니다. 타슈켄트의 NOIR 매장 오너이자 물류 회사 VERTEX LINE의 공동 창업자입니다.",
       collab: "협업",
+      gallery: "갤러리",
+      g1: "Emily Mei 뮤직비디오 촬영 현장, 한국 · CYN 프로덕션",
+      g2: "Yuri Park과 함께한 한국풍 촬영",
+      g3: "‘Please Stop It’ 뮤직비디오 촬영 현장",
       listen: "듣기",
       yandex: "아티스트 프로필",
       work: "하는 일",
@@ -442,6 +563,10 @@
       if (v) n.textContent = v;
     });
     img.setAttribute('alt', d.alt);
+    document.querySelectorAll('[data-alt-key]').forEach(function (n) {
+      var v = d[n.getAttribute('data-alt-key')];
+      if (v) n.setAttribute('alt', v);
+    });
     buttons.forEach(function (b) {
       b.setAttribute('aria-pressed', b.getAttribute('data-lang') === code ? 'true' : 'false');
     });
@@ -457,6 +582,27 @@
   var saved = null;
   try { saved = localStorage.getItem('dmitrysface-lang'); } catch (e) {}
   if (saved && saved !== 'en') setLang(saved, false);
+
+  var lb = document.getElementById('lightbox');
+  var lbImg = document.getElementById('lightbox-img');
+  var lbCap = document.getElementById('lightbox-cap');
+  var lbClose = document.getElementById('lightbox-close');
+  function closeLightbox() {
+    lb.hidden = true;
+    lbImg.removeAttribute('src');
+  }
+  document.querySelectorAll('.shot button').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var fig = btn.closest('.shot');
+      lbImg.src = btn.getAttribute('data-full');
+      lbImg.alt = fig.querySelector('img').alt;
+      lbCap.textContent = fig.querySelector('figcaption').textContent;
+      lb.hidden = false;
+      lbClose.focus();
+    });
+  });
+  lb.addEventListener('click', function (e) { if (e.target !== lbImg) closeLightbox(); });
+  document.addEventListener('keydown', function (e) { if (e.key === 'Escape' && !lb.hidden) closeLightbox(); });
 </script>
 </body>
 </html>
